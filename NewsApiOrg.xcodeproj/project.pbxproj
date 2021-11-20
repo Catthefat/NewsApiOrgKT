@@ -21,6 +21,7 @@
 		6898E0772748F29700AEA87B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6898E0762748F29700AEA87B /* SDWebImage */; };
 		6898E0792748F62000AEA87B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898E0782748F62000AEA87B /* DetailViewController.swift */; };
 		6898E07B2748FC2A00AEA87B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6898E07A2748FC2A00AEA87B /* WebViewController.swift */; };
+		C9F59DB327492DC5004696CB /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F59DB227492DC5004696CB /* SavedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		6898E0732748F11900AEA87B /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		6898E0782748F62000AEA87B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6898E07A2748FC2A00AEA87B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		C9F59DB227492DC5004696CB /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				6898E0782748F62000AEA87B /* DetailViewController.swift */,
 				6898E07A2748FC2A00AEA87B /* WebViewController.swift */,
 				680AB4332749004B00FD4174 /* SavedTableViewController.swift */,
+				C9F59DB227492DC5004696CB /* SavedTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				6898E0742748F11900AEA87B /* NewsTableViewCell.swift in Sources */,
 				680AB4342749004B00FD4174 /* SavedTableViewController.swift in Sources */,
 				684A32A12747E73800D29928 /* NewsItem.swift in Sources */,
+				C9F59DB327492DC5004696CB /* SavedTableViewCell.swift in Sources */,
 				684A32832747E65600D29928 /* AppDelegate.swift in Sources */,
 				684A328D2747E65600D29928 /* NewsApiOrg.xcdatamodeld in Sources */,
 				684A329F2747E72000D29928 /* Alert.swift in Sources */,

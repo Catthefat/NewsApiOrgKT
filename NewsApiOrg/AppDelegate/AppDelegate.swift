@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  NewsApiOrg
 //
-//  Created by Arkadijs Makarenko on 19/11/2021.
 //
 
 import UIKit

@@ -2,7 +2,6 @@
 //  DetailViewController.swift
 //  NewsApiOrg
 //
-//  Created by Arkadijs Makarenko on 20/11/2021.
 //
 
 import UIKit
@@ -21,30 +20,48 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
-    @IBOutlet weak var contentTextView: UITextView!
     
+    @IBOutlet weak var detailsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLabel.text = titleString
-        contentTextView.text = contentString
+        detailsLabel.text = contentString
         newsImageView.sd_setImage(with: URL(string: newsImage), placeholderImage: UIImage(named: "news.png"))
-                                  
-    #warning("AppDelegate")
+               
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
     }
     
-    #warning("saveData")
-    //saveData(){
-    // basicAlert(saved! , please go to saved tab bar to see
-//}
+    func saveData(){
+        do{
+            try context?.save()
+        }catch{
+            fatalError("error in saving in core data item")
+        }
+        loadData()
+
+    }
+    func loadData(){
+           let request: NSFetchRequest<Items> = Items.fetchRequest()
+           do{
+               let result = try  context?.fetch(request)
+               savedItems = result!
+           }catch{
+               fatalError("error in loading core data item")
+           }
+       }
     
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         let newItem = Items(context: context!)
-//        item.
-        
-        //savedItems.append(newItem)
-        //saveData()
+        newItem.url = webUrlString
+        newItem.newsContent = contentString
+        newItem.newsTitle = titleString
+        print("newItem.newsTitle: ", savedItems)
+        savedItems.append(newItem)
+        saveData()
+        loadData()
     }
     
     

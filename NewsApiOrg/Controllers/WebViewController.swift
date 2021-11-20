@@ -2,7 +2,6 @@
 //  WebViewController.swift
 //  NewsApiOrg
 //
-//  Created by Arkadijs Makarenko on 20/11/2021.
 //
 
 import UIKit

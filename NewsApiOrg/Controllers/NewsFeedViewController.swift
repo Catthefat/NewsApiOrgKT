@@ -2,7 +2,6 @@
 //  NewsFeedViewController.swift
 //  NewsApiOrg
 //
-//  Created by Arkadijs Makarenko on 19/11/2021.
 //
 
 import UIKit
@@ -97,7 +96,7 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
