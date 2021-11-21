@@ -11,32 +11,29 @@ import SDWebImage
 class SavedTableViewController: UITableViewController {
     
     @IBAction func HandleRefresh(_ sender: UIRefreshControl) {
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         })
-
         
     }
     @IBOutlet var TbllView: UITableView!
+    
     var savedItems = [Items]()
     var context: NSManagedObjectContext?
+    var webUrlString = String()
+    
     var urlStr = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reloadInputViews()
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         
         loadData()
         
     }
-    
-    @IBAction func RefreshButton(_ sender: Any) {
-        self.tableView.reloadData()
-        self.loadData()
-    }
-    
     
     func loadData(){
         let request: NSFetchRequest<Items> = Items.fetchRequest()
@@ -58,6 +55,7 @@ class SavedTableViewController: UITableViewController {
         loadData()
         
     }
+    
     func basicAlert2(indexPath: IndexPath) {
         let alert = UIAlertController(title: "Delete?", message: "", preferredStyle: .alert)
         let yes = UIAlertAction(title: "OK", style: .default) { [self]
@@ -69,7 +67,7 @@ class SavedTableViewController: UITableViewController {
         alert.addAction(cancelButton)
         alert.addAction(yes)
         self.present(alert, animated: true, completion: nil)
-       
+        
         
     }
     
@@ -84,7 +82,7 @@ class SavedTableViewController: UITableViewController {
         }
     }
     
-   
+    
     
     @IBAction func DeleteButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Delete All Shopping items?", message: "Do you want to delete them all?", preferredStyle: .actionSheet)
@@ -132,7 +130,7 @@ class SavedTableViewController: UITableViewController {
      return true
      }
      */
-//#warning("confirmation of detele Item")
+    //#warning("confirmation of detele Item")
     
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -182,11 +180,14 @@ class SavedTableViewController: UITableViewController {
      */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let item = savedItems[indexPath!.row]
         // Get the new view controller using segue.destination.
+        
         let destinationVC: WebViewController = segue.destination as! WebViewController
-//        destinationVC.urlString = URL(string: url)
+        destinationVC.urlString = item.url!
         // Pass the selected object to the new view controller.
+        
     }
-
     
 }
